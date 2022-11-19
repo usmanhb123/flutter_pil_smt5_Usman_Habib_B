@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_pil_smt5/app/utils/widgets/sidebar.dart';
 
 import 'package:get/get.dart';
 
+import '../../../utils/widgets/header.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -13,107 +14,28 @@ class HomeView extends GetView<HomeController> {
         backgroundColor: const Color.fromARGB(255, 162, 205, 240),
         body: Row(
           children: [
+            const Expanded(flex: 2, child: SideBar()),
             Expanded(
-                flex: 2,
-                child: Container(
-                  color: const Color.fromARGB(255, 162, 205, 240),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 100,
-                          alignment: Alignment.topCenter,
-                          child: const Image(
-                            image: AssetImage('assets/icons/icon.png'),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 100,
-                          child: Center(
-                            child: InkWell(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), color: Colors.white),
-                                    child: const Icon(FontAwesomeIcons.desktop, color: Colors.grey,),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  const Text("Home", style: TextStyle(color: Colors.grey, fontSize: 16),)
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 100,
-                          child: Center(
-                            child: InkWell(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), color: Colors.white),
-                                    child: const Icon(FontAwesomeIcons.desktop, color: Colors.grey,),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  const Text("Home", style: TextStyle(color: Colors.grey, fontSize: 16),)
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 100,
-                          child: Center(
-                            child: InkWell(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), color: Colors.white),
-                                    child: const Icon(FontAwesomeIcons.desktop, color: Colors.grey,),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  const Text("Home", style: TextStyle(color: Colors.grey, fontSize: 16),)
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 100,
-                          child: Center(
-                            child: InkWell(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    width: 100,
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(40), color: Colors.white),
-                                    child: const Icon(FontAwesomeIcons.desktop, color: Colors.grey,),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  const Text("Home", style: TextStyle(color: Colors.grey, fontSize: 16),)
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                flex: 17,
+                child: Column(
+                  children: [
+                    const header(),
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-                )),
-            Expanded(
-                flex: 15,
-                child: Container(
-                  color: const Color.fromARGB(255, 252, 252, 252),
+                    Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(20),
+                          margin: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                      color: Colors.white,
+                        borderRadius: BorderRadius.circular(50)
+                      ),
+                    ))
+                  ],
                 ))
           ],
         ));
   }
 }
+
