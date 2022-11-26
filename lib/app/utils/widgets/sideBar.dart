@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_pil_smt5/app/routes/app_pages.dart';
+import 'package:flutter_pil_smt5/app/utils/style/appColors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,7 @@ class SideBar extends StatelessWidget {
       elevation: 1,
       child: Container(
         height: Get.height,
-        color: Colors.blue,
+        color: AppColors.primaryBg,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -53,7 +54,7 @@ class SideBar extends StatelessWidget {
                           child: Get.currentRoute == "/home"
                               ? const Icon(
                                   FontAwesomeIcons.desktop,
-                                  color: Colors.grey,
+                                  color: AppColors.primaryText,
                                 )
                               : const Icon(
                                   FontAwesomeIcons.desktop,
@@ -93,7 +94,7 @@ class SideBar extends StatelessWidget {
                           child: Get.currentRoute == "/profile"
                               ? const Icon(
                                   FontAwesomeIcons.user,
-                                  color: Colors.grey,
+                                  color: AppColors.primaryText,
                                 )
                               : const Icon(
                                   FontAwesomeIcons.user,
@@ -131,7 +132,7 @@ class SideBar extends StatelessWidget {
                           child: Get.currentRoute == "/friends"
                               ? const Icon(
                                   FontAwesomeIcons.heart,
-                                  color: Colors.grey,
+                                  color: AppColors.primaryText,
                                 )
                               : const Icon(
                                   FontAwesomeIcons.heart,
@@ -169,7 +170,7 @@ class SideBar extends StatelessWidget {
                           child: Get.currentRoute == "/task"
                               ? const Icon(
                                   FontAwesomeIcons.cube,
-                                  color: Colors.grey,
+                                  color: AppColors.primaryText,
                                 )
                               : const Icon(
                                   FontAwesomeIcons.cube,

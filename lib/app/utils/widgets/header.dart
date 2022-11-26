@@ -31,7 +31,7 @@ class header extends StatelessWidget {
                 ),
                 Text("Manage Task Made Easy With Friends",
                     style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 12,
                         color:
                             Color.fromARGB(255, 65, 64, 64))),
               ],
