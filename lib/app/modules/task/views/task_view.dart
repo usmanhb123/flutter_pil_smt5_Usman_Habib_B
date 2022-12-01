@@ -16,7 +16,7 @@ class TaskView extends GetView<TaskController> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerKey,
-      drawer: const SizedBox(width: 150, child: SideBar()),
+      drawer: SafeArea(child: SizedBox(width: 150, child: const SideBar())),
       backgroundColor: AppColors.primaryBg,
       body: SafeArea(
         child: Row(
@@ -32,59 +32,61 @@ class TaskView extends GetView<TaskController> {
               child: Column(
                 children: [
                   !context.isPhone
-                      ? const header()
+                      ? header()
                       : Container(
-                          // content / isi page / screen
-
-                          padding: const EdgeInsets.all(20),
-                          child: Row(children: [
-                            IconButton(
-                              onPressed: () {
-                                _drawerKey.currentState!.openDrawer();
-                              },
-                              icon: const Icon(FontAwesomeIcons.bars),
-                              color: AppColors.primaryText,
-                            ),
-                            const SizedBox(
-                                // width: 15,
+                          padding: EdgeInsets.all(20),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  _drawerKey.currentState!.openDrawer();
+                                },
+                                icon: Icon(
+                                  Icons.menu,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                 ),
-                            Column(
-                              // mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  "Task Management",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: AppColors.primaryText),
-                                ),
-                                Text(
-                                  "Manage Task Made easy with friends",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      color: AppColors.primaryText),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            const Icon(
-                              FontAwesomeIcons.bell,
-                              color: AppColors.primaryText,
-                              size: 30,
-                            ),
-                            const SizedBox(
-                                // width: 15,
-                                ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: const CircleAvatar(
-                                backgroundColor: Colors.amber,
-                                radius: 20,
-                                foregroundImage: NetworkImage(
-                                    'https://images.unsplash.com/photo-1620231150904-a86b9802656a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'),
                               ),
-                            ),
-                          ]),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Column(
+                                // mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Task Management',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Color.fromARGB(255, 0, 0, 0)),
+                                  ),
+                                  Text(
+                                    'Manage Task Made Easy With Friends',
+                                    style: TextStyle(
+                                        fontSize: 10,
+                                        color: Color.fromARGB(255, 0, 0, 0)),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                Icons.notifications,
+                                color: Color.fromARGB(255, 2, 2, 2),
+                                size: 30,
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: const CircleAvatar(
+                                  backgroundColor: Colors.amber,
+                                  radius: 25,
+                                  foregroundImage: NetworkImage(
+                                      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg'),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                   Expanded(
                     child: Container(

@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pil_smt5/app/data/controllers/authController.dart';
 import 'package:flutter_pil_smt5/app/routes/app_pages.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
-import 'package:ionicons/ionicons.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
+
+   LoginView({super.key});
+  // const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 162, 205, 240),
       body: Container(
-        margin: EdgeInsets.all(Get.height * 0.1),
+        margin: EdgeInsets.all(Get.height * 0.045),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: Colors.white),
         child: Row(
@@ -64,7 +67,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 child: Column(children: [
                   const Padding(
-                    padding: EdgeInsets.only(top: 50.5),
+                    padding: EdgeInsets.only(top: 80.5),
                   ),
                   context.isPhone
                       ? Column(
@@ -110,10 +113,10 @@ class LoginView extends GetView<LoginController> {
                           padding: EdgeInsets.only(bottom: 50.5),
                         )
                       : const Padding(
-                          padding: EdgeInsets.only(bottom: 20.5),
+                          padding: EdgeInsets.only(bottom: 30.5),
                         ),
                   FloatingActionButton.extended(
-                    onPressed: () => Get.toNamed(Routes.HOME),
+                    onPressed: () => authC.signInWithGoogle(),
                     label: const Text("Sign In With Google"),
                     icon: const Icon(
                       FontAwesomeIcons.google,

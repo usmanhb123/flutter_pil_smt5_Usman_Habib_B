@@ -21,7 +21,8 @@ class ProfileW extends StatelessWidget {
                       backgroundColor: Colors.amber,
                       radius: 150,
                       foregroundImage: NetworkImage(
-                          'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2021/03/Freepik2.jpg'),
+                          'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2021/03/Freepik2.jpg',
+                          ),
                     ),
                   ),
                 ),

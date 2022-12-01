@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/Coba/bindings/coba_binding.dart';
+import '../modules/Coba/views/coba_view.dart';
 import '../modules/friends/bindings/friends_binding.dart';
 import '../modules/friends/views/friends_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -33,7 +35,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () => const LoginView(),
+      page: () => LoginView(),
       binding: LoginBinding(),
     ),
     GetPage(
@@ -45,6 +47,11 @@ class AppPages {
       name: _Paths.FRIENDS,
       page: () => FriendsView(),
       binding: FriendsBinding(),
+    ),
+    GetPage(
+      name: _Paths.COBA,
+      page: () => const CobaView(),
+      binding: CobaBinding(),
     ),
   ];
 }

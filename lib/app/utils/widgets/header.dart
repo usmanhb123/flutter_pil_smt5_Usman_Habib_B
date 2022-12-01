@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../data/controllers/authController.dart';
 import '../../routes/app_pages.dart';
 
 // ignore: camel_case_types
 class header extends StatelessWidget {
-  const header({
+  
+  final authC = Get.find<AuthController>();
+  header({
     Key? key,
   }) : super(key: key);
 
@@ -90,7 +93,7 @@ class header extends StatelessWidget {
                         child: const Text("Cancel")),
                     confirm: ElevatedButton(
                         onPressed: () =>
-                            Get.toNamed(Routes.LOGIN),
+                            authC.logOut(),
                         child: const Text("Sign Out")));
               },
               child: Row(

@@ -2,8 +2,10 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
+import '../../../data/controllers/authController.dart';
 import '../../../utils/style/AppColors.dart';
 import '../../../utils/widgets/MyFriends.dart';
 import '../../../utils/widgets/MyTask.dart';
@@ -14,12 +16,14 @@ import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerKey,
-      drawer: const SideBar(),
+      drawer: SafeArea(child: SizedBox(width: 150, child: const SideBar())),
       backgroundColor: AppColors.primaryBg,
       body: SafeArea(
         child: Row(
@@ -34,64 +38,63 @@ class HomeView extends GetView<HomeController> {
               flex: 15,
               child: Column(children: [
                 !context.isPhone
-                    ? const header()
-                    : Container(
-                        padding: EdgeInsets.all(20),
-                        child: Row(
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                _drawerKey.currentState!.openDrawer();
-                              },
-                              icon: Icon(
-                                Icons.menu,
-                                color: AppColors.primaryText,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            Column(
-                              // mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Task Management',
-                                  style: TextStyle(
-                                      fontSize: 30,
-                                      color: AppColors.primaryText),
+                    ? header()
+                    :Container(
+                          padding: EdgeInsets.all(20),
+                          child: Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  _drawerKey.currentState!.openDrawer();
+                                },
+                                icon: Icon(
+                                  Icons.menu,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                 ),
-                                Text(
-                                  'Manage Task Made Easy With Friends',
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: AppColors.primaryText),
-                                ),
-                              ],
-                            ),
-                            const Spacer(),
-                            const Icon(
-                              Icons.notifications,
-                              color: AppColors.primaryText,
-                              size: 30,
-                            ),
-                            const SizedBox(
-                              width: 15,
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: const CircleAvatar(
-                                backgroundColor: Colors.amber,
-                                radius: 25,
-                                foregroundImage: NetworkImage(
-                                    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg'),
                               ),
-                            )
-                          ],
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Column(
+                                // mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    'Task Management',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Color.fromARGB(255, 0, 0, 0)),
+                                  ),
+                                  Text(
+                                    'Manage Task Made Easy With Friends',
+                                    style: TextStyle(
+                                        fontSize: 10,
+                                        color: Color.fromARGB(255, 0, 0, 0)),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              const Icon(
+                                Icons.notifications,
+                                color: Color.fromARGB(255, 2, 2, 2),
+                                size: 30,
+                              ),
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: const CircleAvatar(
+                                  backgroundColor: Colors.amber,
+                                  radius: 25,
+                                  foregroundImage: NetworkImage(
+                                      'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg'),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                //content / isi page /screen
-
+                 
                 Expanded(
                     child: Container(
                   padding: !context.isPhone
