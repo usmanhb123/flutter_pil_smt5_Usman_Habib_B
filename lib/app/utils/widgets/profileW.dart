@@ -36,7 +36,7 @@ class ProfileW extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        'Alicia Jasmin',
+                        'Surti',
                         style: TextStyle(
                           color: AppColors.primaryText,
                           fontSize: 40,
@@ -72,7 +72,7 @@ class ProfileW extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'Alicia Jasmin',
+                    'Surti',
                     style: TextStyle(
                       color: AppColors.primaryText,
                       fontSize: 40,

@@ -137,7 +137,7 @@ class FriendsView extends GetView<FriendsController> {
                                       bottom: 10,
                                       left: 50,
                                       child: Text(
-                                        'Alicia Jasmin',
+                                        'Surti',
                                         style: TextStyle(color: Colors.white),
                                       ),
                                     ),

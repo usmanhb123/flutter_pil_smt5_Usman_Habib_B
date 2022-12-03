@@ -68,7 +68,7 @@ class MyFriends extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'Alicia Jasmin',
+                            'Surti',
                             style: TextStyle(color: AppColors.primaryText),
                           )
                         ],

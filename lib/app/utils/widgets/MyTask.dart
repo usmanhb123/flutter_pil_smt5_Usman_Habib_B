@@ -67,7 +67,7 @@ class MyTask extends StatelessWidget {
               Spacer(),
               Container(
                 height: 25,
-                width: 80,
+                width: 100,
                 color: AppColors.primaryBg,
                 child: Center(
                     child: Text(
@@ -141,7 +141,7 @@ class MyTask extends StatelessWidget {
               Spacer(),
               Container(
                 height: 25,
-                width: 80,
+                width: 100,
                 color: AppColors.primaryBg,
                 child: Center(
                     child: Text(
@@ -215,7 +215,7 @@ class MyTask extends StatelessWidget {
               Spacer(),
               Container(
                 height: 25,
-                width: 80,
+                width: 100,
                 color: AppColors.primaryBg,
                 child: Center(
                     child: Text(
