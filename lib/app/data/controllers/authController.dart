@@ -110,6 +110,7 @@ class AuthController extends GetxController {
 
       if (kataCari.isNotEmpty) {
         
+      hasilPencarian.value = [];
         kataCari.forEach((element) {
           hasilPencarian.add(element);
           print(hasilPencarian);
