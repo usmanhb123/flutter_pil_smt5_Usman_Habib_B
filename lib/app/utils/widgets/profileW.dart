@@ -43,7 +43,7 @@ class ProfileW extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'alicia@gmail.com',
+                        'surti@gmail.com',
                         style: TextStyle(
                           color: AppColors.primaryText,
                           fontSize: 16,
@@ -79,7 +79,7 @@ class ProfileW extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'alicia@gmail.com',
+                    'surti@gmail.com',
                     style: TextStyle(
                       color: AppColors.primaryText,
                       fontSize: 16,

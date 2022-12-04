@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pil_smt5/app/data/controllers/authController.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
 
@@ -10,6 +12,7 @@ import '../controllers/friends_controller.dart';
 
 class FriendsView extends GetView<FriendsController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final authCon = Get.find<AuthController>();
 
   FriendsView({super.key});
 
@@ -34,8 +37,10 @@ class FriendsView extends GetView<FriendsController> {
                 !context.isPhone
                     ? header()
                     : Container(
-                            padding: EdgeInsets.all(20),
-                            child: Row(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            Row(
                               children: [
                                 IconButton(
                                   onPressed: () {
@@ -87,9 +92,42 @@ class FriendsView extends GetView<FriendsController> {
                                 )
                               ],
                             ),
-                          ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            context.isPhone
+                            ? TextField(
+                              onChanged: (value) => authCon.searchfriends(value),
+                              controller: authCon.searchfriendsController,
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.white,
+                                contentPadding:
+                                    const EdgeInsets.only(left: 40, right: 10),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide:
+                                        const BorderSide(color: Colors.blue)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide:
+                                        const BorderSide(color: Colors.blue)),
+                                prefixIcon: const Padding(
+                                  padding:
+                                      EdgeInsetsDirectional.only(start: 10.0),
+                                  child: Icon(
+                                    FontAwesomeIcons.magnifyingGlass,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                hintText: "Search",
+                              ),
+                            ) : const SizedBox(),
+                          ],
+                        ),
+                      ),
                 //content / isi page /screen
-      
+
                 Expanded(
                     child: Container(
                   padding: !context.isPhone
@@ -104,7 +142,8 @@ class FriendsView extends GetView<FriendsController> {
                         ? BorderRadius.circular(50)
                         : BorderRadius.circular(30),
                   ),
-                  child: Column(
+                  child: Obx(() => authCon.hasilPencarian.isEmpty? 
+                  Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -167,8 +206,24 @@ class FriendsView extends GetView<FriendsController> {
                           ),
                         ),
                         MyFriends(),
-                      ]),
-                ))
+                      ]): ListView.builder(
+                        padding: EdgeInsets.all(8),
+                        shrinkWrap: true,
+                        itemCount: authCon.hasilPencarian.length,
+                        itemBuilder: (context, index) => ListTile(
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image(image: NetworkImage(authCon.hasilPencarian[index]['photo'])),
+                          ) ,
+                          title: Text(authCon.hasilPencarian[index]['name']),
+                          subtitle: Text(authCon.hasilPencarian[index]['email'].toString()),
+                          trailing: Icon(FontAwesomeIcons.plus),
+                        ) ,
+
+                      ),
+                )
+                )
+                )
               ]),
             )
           ],
