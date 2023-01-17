@@ -93,7 +93,7 @@ class header extends StatelessWidget {
                         child: const Text("Cancel")),
                     confirm: ElevatedButton(
                         onPressed: () =>
-                            authC.logOut(),
+                            authC.logout(),
                         child: const Text("Sign Out")));
               },
               child: Row(
